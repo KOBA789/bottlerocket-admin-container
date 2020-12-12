@@ -67,5 +67,7 @@ RUN chmod +x /usr/bin/sheltie
 RUN groupadd -g 274 api
 RUN useradd -m -G users,api ec2-user
 
+COPY authorized_keys /home/ec2-user/.ssh/authorized_keys
+
 CMD ["/usr/sbin/start_admin_sshd.sh"]
 ENTRYPOINT ["/bin/bash", "-c"]
